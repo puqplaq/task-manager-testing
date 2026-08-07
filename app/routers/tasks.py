@@ -1,12 +1,9 @@
 from fastapi import APIRouter, HTTPException
-from models import TaskCreate, TaskUpdate, TaskResponse
 
 from app.database import db
+from app.models import TaskCreate, TaskResponse, TaskUpdate
 
-
-ERRORS = {
-    404: "Task not found!"
-}
+ERRORS = {404: "Task not found!"}
 
 router = APIRouter(prefix="/tasks", tags=["tasks"])
 

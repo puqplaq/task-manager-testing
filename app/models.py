@@ -1,22 +1,20 @@
 from pydantic import BaseModel
-from typing import Optional
 
 
 class TaskCreate(BaseModel):
     title: str
     description: str = ""
     status: str
-    
-    
+
+
 class TaskUpdate(BaseModel):
-    title: Optional[str]
-    description: Optional[str]
-    status: Optional[str]
-    
-    
+    title: str | None
+    description: str | None
+    status: str | None
+
+
 class TaskResponse(BaseModel):
     id: int
     title: str
     description: str
     status: str
-    
