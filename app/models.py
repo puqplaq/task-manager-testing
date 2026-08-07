@@ -1,16 +1,23 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, field_validator
+from typing import Optional
 
 
 class TaskCreate(BaseModel):
     title: str
     description: str = ""
-    status: str
+    
+    @field_validator("title")
+    @classmethod
+    def title_not_empty(cls, v: str) -> str:
+        if not v.strip():
+            raise ValueError("Title cannot be empty!")
+        return v.strip()
 
 
 class TaskUpdate(BaseModel):
-    title: str | None
-    description: str | None
-    status: str | None
+    title: Optional[str] = None
+    description: Optional[str] = None
+    status: Optional[str] = None
 
 
 class TaskResponse(BaseModel):

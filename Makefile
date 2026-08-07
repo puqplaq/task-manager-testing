@@ -1,10 +1,16 @@
-.PHONY: run lint format lock install
+.PHONY: run test test-cov lint format lock install
 
 install:
 	poetry install
 
 run: 
 	poetry run uvicorn app.main:app --reload
+
+test: 
+	poetry run pytest tests/ -v
+
+test-cov:
+	poetry run pytest tests/ -v --cov=app --cov-report=html
 
 lint:
 	poetry run ruff check app/ tests/
