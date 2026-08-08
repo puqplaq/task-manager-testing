@@ -17,8 +17,13 @@ class InMemoryDB:
     def get_all(self) -> list[Task]:
         return list(self._tasks.values())
 
-    def get(self, id: int) -> Task:
-        return self._tasks[id]
+    def get(self, id: int) -> Task | None:
+        task = self._tasks.get(id)
+        
+        if task is None:
+            return None
+        
+        return task
 
     def create(self, title: str, description: str = "") -> Task:
         task = Task(id=self._next_id, title=title, description=description)
