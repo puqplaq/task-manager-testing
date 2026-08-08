@@ -1,3 +1,10 @@
+[tool.poetry]
+name = "task-manager-tests"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+package-mode = false
+
 [project]
 name = "task-manager-tests"
 version = "0.1.0"
