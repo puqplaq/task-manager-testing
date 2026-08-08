@@ -19,10 +19,10 @@ class InMemoryDB:
 
     def get(self, id: int) -> Task | None:
         task = self._tasks.get(id)
-        
+
         if task is None:
             return None
-        
+
         return task
 
     def create(self, title: str, description: str = "") -> Task:

@@ -1,11 +1,10 @@
 from pydantic import BaseModel, field_validator
-from typing import Optional
 
 
 class TaskCreate(BaseModel):
     title: str
     description: str = ""
-    
+
     @field_validator("title")
     @classmethod
     def title_not_empty(cls, v: str) -> str:
@@ -15,9 +14,9 @@ class TaskCreate(BaseModel):
 
 
 class TaskUpdate(BaseModel):
-    title: Optional[str] = None
-    description: Optional[str] = None
-    status: Optional[str] = None
+    title: str | None = None
+    description: str | None = None
+    status: str | None = None
 
 
 class TaskResponse(BaseModel):

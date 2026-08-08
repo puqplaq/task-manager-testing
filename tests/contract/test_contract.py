@@ -11,7 +11,9 @@ def client():
 
 @pytest.fixture
 def task(client):
-    resp = client.post("/tasks", json={"title": "Post task", "description": "Posting task"})
+    resp = client.post(
+        "/tasks", json={"title": "Post task", "description": "Posting task"}
+    )
     return resp.json()
 
 

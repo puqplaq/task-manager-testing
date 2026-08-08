@@ -1,8 +1,7 @@
 import pytest
 from pydantic import ValidationError
 
-
-from app.models import TaskCreate, TaskUpdate, TaskResponse
+from app.models import TaskCreate, TaskResponse, TaskUpdate
 
 
 class TestTaskCreate:
