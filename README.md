@@ -102,6 +102,7 @@ poetry run pytest tests/ -v
 - `tests/integration/` — интеграционные тесты
 - `tests/contract/` — контрактные тесты
 - `tests/e2e/` — сквозные (end-to-end) тесты
+- `tests/load/` — нагрузочные тесты
 
 ### Покрытие кода
 
@@ -122,6 +123,13 @@ make test-allure
 ```
 
 Для генерации HTML-отчёта требуется установленный CLI-инструмент **Allure**.
+
+Запуск нагрузочных тестов с использованием `locust`:
+
+```bash
+make run
+make test-load
+```
 
 ## Линтинг и проверка типов
 
@@ -160,6 +168,7 @@ make clean
 | `make test`       | Запуск всех тестов                         |
 | `make test-cov`   | Запуск тестов с покрытием (HTML-отчёт)     |
 | `make test-allure`| Запуск тестов и генерация отчёта Allure    |
+| `make test-load`  | Запуск нагрузочных locust-тестов           |
 | `make lint`       | Проверка `ruff` + `mypy`                   |
 | `make fix`        | Авто-исправление ошибок `ruff`             |
 | `make format`     | Форматирование кода                        |
