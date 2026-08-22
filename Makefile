@@ -1,4 +1,4 @@
-.PHONY: run test test-cov test-allure allure-report lint format lock install
+.PHONY: run test test-cov test-allure test-load lint format lock install
 
 install:
 	poetry install
@@ -15,6 +15,9 @@ test-cov:
 test-allure:
 	poetry run pytest tests/ --alluredir=allure-results
 	allure generate allure-results
+
+test-load:
+	locust -f tests/load/ --host=http://127.0.0.1:8000 --headless --users 10 --spawn-rate 10 --run-time 1m
 
 lint:
 	poetry run ruff check app/ tests/
